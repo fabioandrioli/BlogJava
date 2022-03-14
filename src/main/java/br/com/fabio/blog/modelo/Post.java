@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "produtos")
+@Table(name = "posts")
 public class Post {
 
 	@Id
@@ -18,7 +18,7 @@ public class Post {
 	private String title;
 	private String description;
 	@Column (name = "categoryId")
-	private Long category_id;
+	private int category_id;
 	
 	public Long getId() {
 		return id;
@@ -44,11 +44,11 @@ public class Post {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Long getCategory_id() {
+	public int getCategory_id() {
 		return category_id;
 	}
-	public void setCategory_id(Long category_id) {
-		this.category_id = category_id;
+	public void setCategory_id(int i) {
+		this.category_id = i;
 	}
 	
 }

@@ -12,7 +12,7 @@ public class PostCreate {
 		post.setTitle("Primeiro post feito em java");
 		post.setDescription("Primeira descricao de um post em java");
 		post.setImage("Nenhuma imagem ainda");
-		post.setCategory_id(1L);
+		post.setCategory_id(1);
 		
 		//O nome passo no perssistence create entity manager é o nome dado ao jpa no arquivo persistence
 		//<persistence-unit name="blog" transaction-type="RESOURCE_LOCAL">

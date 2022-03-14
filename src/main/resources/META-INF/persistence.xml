@@ -3,7 +3,7 @@
     xmlns="http://xmlns.jcp.org/xml/ns/persistence"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-	<!-- <class>br.com.alura.loja.modelo.Produto</class>   -->
+	
 	<!-- 
 		O hibernate entende as classes sem precisar definilas aqui no JPA, porém pode ser que com outras aplicações precise
 		Caso declare uma, tem que declarar, todas, então ou declara todas ou não declara nenhuma.
@@ -19,9 +19,9 @@
 			<property name="javax.persistence.jdbc.user" value="sa"/>
 			<property name="javax.persistence.jdbc.password" value=""/>
 
-			<property name="hibernat.dialect" value="org.hibernat.dialect.H2Dialect"/>
-			<property name="hibernat.show_sql" value="true"/><!-- Mostra as Sql no console -->
-			<property name="hibernat.hbm2ddl.auto" value="update"/><!-- Cria o banco de dados -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+			<property name="hibernate.show_sql" value="true"/><!-- Mostra as Sql no console -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/><!-- Cria o banco de dados -->
 		</properties>
 	</persistence-unit>
 </persistence>
