@@ -4,23 +4,29 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import br.com.fabio.blog.dao.CategoriaDao;
+import br.com.fabio.blog.dao.PostDao;
+import br.com.fabio.blog.modelo.Categoria;
 import br.com.fabio.blog.modelo.Post;
+import br.com.fabio.blog.utils.JPAUtil;
 
 public class PostCreate {
 	public static void main(String[] args) {
-		Post post = new Post();
+		Categoria cateogria = new Categoria("Filmes");
+		Post post = new Post("nenhum","Titulo","descricao",cateogria);
 		post.setTitle("Primeiro post feito em java");
 		post.setDescription("Primeira descricao de um post em java");
 		post.setImage("Nenhuma imagem ainda");
-		post.setCategory_id(1);
 		
-		//O nome passo no perssistence create entity manager é o nome dado ao jpa no arquivo persistence
-		//<persistence-unit name="blog" transaction-type="RESOURCE_LOCAL">
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("blog");
-		EntityManager em = factory.createEntityManager();
-		em.getTransaction().begin();
-		em.persist(post);
-		em.getTransaction().commit();
-		em.close();
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		PostDao produtoDao = new PostDao(entityManager);
+		CategoriaDao categoriaDao = new CategoriaDao(entityManager);
+		entityManager.getTransaction().begin();
+		
+		categoriaDao.create(cateogria);
+		produtoDao.create(post);
+		
+		entityManager.getTransaction().commit();
+		entityManager.close();
 	}
 }
