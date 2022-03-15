@@ -33,6 +33,11 @@ public class Post {
 	private LocalDateTime created_at = LocalDateTime.now();
 	private LocalDateTime updated_at = LocalDateTime.now();
 	
+	
+	public Post() {
+		
+	}
+	
 	public Post(String image, String title, String description, Categoria categoria) {
 		this.image = image;
 		this.title = title;
