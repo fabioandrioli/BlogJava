@@ -26,7 +26,7 @@ public class Pedido {
 	private Cliente cliente;
 	
 	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL) // quando inserir um pedido o cascade vai garantir que ele vai vincular com ItemPedido tbm
-	List<ItemPedido> itens = new ArrayList<>();
+	private List<ItemPedido> itens = new ArrayList<>();
 	
 	public Pedido() {
 		

@@ -29,8 +29,8 @@ public class Cliente {
 	
 	//Quando a tabela pivo de muitos para muitos, tem mais campos. Criamos uma classe especifica pra inserir esses campos
 
-	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
-	List<ItemPedido> itemPedido;
+	public Cliente() {
+	}
 	
 	public Cliente(String name) {
 		this.name = name;

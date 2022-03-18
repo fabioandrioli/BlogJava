@@ -21,19 +21,20 @@ public class Main {
 	EntityManager entityManager = JPAUtil.getEntityManager();
 	public static void main(String[] args) {
 		
+		Main ps = new Main();
+		ps.popularBancoDeDados();
 		EntityManager entityManager = JPAUtil.getEntityManager();
 		ProductDao productDao = new ProductDao(entityManager);
 		
 		Product product =  productDao.buscaPostId(1l);
-		Main ps = new Main();
 		
-		ps.popularBancoDeDados();
 		ClienteDao clienteDao = new ClienteDao(entityManager);
 		Cliente cliente = clienteDao.buscaPostId(1l);
+		
 		entityManager.getTransaction().begin();
 		
 		Pedido pedido = new Pedido(cliente);
-		ItemPedido itemPedido = new ItemPedido("25.50",pedido,product);
+		pedido.adicionarItem(new ItemPedido("25.50",pedido,product));
 		
 		PedidoDao pedidoDao = new PedidoDao(entityManager);
 		pedidoDao.create(pedido);
@@ -88,7 +89,7 @@ public class Main {
 //		String buscarPorNomeUsandoOAtributo  = productDao.buscarPorNomeUsandoOAtributo("Filmes");
 //		System.out.println(buscarPorNomeUsandoOAtributo);
 //		
-	
+		entityManager.getTransaction().commit();
 		entityManager.close();
 		
 	

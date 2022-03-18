@@ -15,6 +15,7 @@ public class ItemPedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String price;
+	private String nameProdut;
 	
 	@ManyToOne
 	private Product product;
@@ -26,6 +27,7 @@ public class ItemPedido {
 		this.price = price;
 		this.product = produto;
 		this.pedido = pedido;
+		this.nameProdut = produto.getTitle();
 	}
 
 	public Long getId() {
