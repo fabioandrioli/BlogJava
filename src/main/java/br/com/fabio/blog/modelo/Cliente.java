@@ -2,12 +2,14 @@ package br.com.fabio.blog.modelo;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +28,8 @@ public class Cliente {
 	
 	
 	//Quando a tabela pivo de muitos para muitos, tem mais campos. Criamos uma classe especifica pra inserir esses campos
-	@ManyToMany
+
+	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
 	List<ItemPedido> itemPedido;
 	
 	public Cliente(String name) {

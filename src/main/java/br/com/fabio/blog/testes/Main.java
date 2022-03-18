@@ -61,33 +61,33 @@ public class Main {
 		//Criacao de post
 		productDao.create(product);
 		//modificando o post depois da criacao, ele ainda se encontra no estado manager.
-		entityManager.flush();
-		entityManager.clear();
-		//recuperacao do estado do post
-		product = entityManager.merge(product);
-		//update do post
-		product.setTitle("teste");
-		//entityManager.remove(post);
-		entityManager.flush();
-		//entityManager.getTransaction().commit();
+//		entityManager.flush();
+//		entityManager.clear();
+//		//recuperacao do estado do post
+//		product = entityManager.merge(product);
+//		//update do post
+//		product.setTitle("teste");
+//		//entityManager.remove(post);
+//		entityManager.flush();
+//		//entityManager.getTransaction().commit();
 		
 		
 		//buscar post
-		Product p = productDao.buscaPostId(1L);
-		System.out.println(p.getTitle());
+//		Product p = productDao.buscaPostId(1L);
+//		System.out.println(p.getTitle());
 		
-		List<Product> todosPosts = productDao.buscarTodosPosts();
-		todosPosts.forEach(pos -> System.out.println(pos.getTitle()));
+//		 List<Product> todosPosts = productDao.buscarTodosPosts();
+//		 todosPosts.forEach(pos -> System.out.println(pos.getTitle()));
 		
-		List<Product> postPorTitulo = productDao.buscarPorTitulo("teste");
-		postPorTitulo.forEach(posTitle -> System.out.println(posTitle.getTitle()));
+//		List<Product> postPorTitulo = productDao.buscarPorTitulo("teste");
+//		postPorTitulo.forEach(posTitle -> System.out.println(posTitle.getTitle()));
 		
-		List<Product> postPorCategoria = productDao.buscarPorCategoria("Filmes");
-		postPorCategoria .forEach(posCat -> System.out.println(posCat .getTitle()));
+//		List<Product> postPorCategoria = productDao.buscarPorCategoria("Filmes");
+//		postPorCategoria .forEach(posCat -> System.out.println(posCat .getTitle()));
 		
-		String buscarPorNomeUsandoOAtributo  = productDao.buscarPorNomeUsandoOAtributo("Filmes");
-		System.out.println(buscarPorNomeUsandoOAtributo);
-		
+//		String buscarPorNomeUsandoOAtributo  = productDao.buscarPorNomeUsandoOAtributo("Filmes");
+//		System.out.println(buscarPorNomeUsandoOAtributo);
+//		
 	
 		entityManager.close();
 		
