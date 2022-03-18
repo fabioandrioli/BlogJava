@@ -1,6 +1,7 @@
 package br.com.fabio.blog.modelo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,11 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "posts")
-public class Post {
+@Table(name = "products")
+public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,15 +32,18 @@ public class Post {
 	@JoinColumn(name = "categoryId")
 	private Categoria categoria;
 	
+	@OneToMany(mappedBy = "product")
+	List<ItemPedido> itemPedido;
+	
 	private LocalDateTime created_at = LocalDateTime.now();
 	private LocalDateTime updated_at = LocalDateTime.now();
 	
 	
-	public Post() {
+	public Product() {
 		
 	}
 	
-	public Post(String image, String title, String description, Categoria categoria) {
+	public Product(String image, String title, String description, Categoria categoria) {
 		this.image = image;
 		this.title = title;
 		this.description = description;

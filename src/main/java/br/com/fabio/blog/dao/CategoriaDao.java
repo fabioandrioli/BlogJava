@@ -3,7 +3,7 @@ package br.com.fabio.blog.dao;
 import javax.persistence.EntityManager;
 
 import br.com.fabio.blog.modelo.Categoria;
-import br.com.fabio.blog.modelo.Post;
+import br.com.fabio.blog.modelo.Product;
 
 public class CategoriaDao {
 private EntityManager entityManager;
