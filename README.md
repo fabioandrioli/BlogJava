@@ -22,3 +22,8 @@ escolhemos a opção update project.
 - ``` <property name="hibernat.hbm2ddl.auto" value="create-drop"/> ```
 - Cria o banco do zero toda vez que inicia a aplicação. e depois apaga o banco
 
+
+#Tipos de carregamentos Lazy e EAGER
+- Todo relacionamento que termina em ToOne, exemplo ManyToOne, a JPA faz um join na tabela, isso pode gerar um gargalo na apliação.
+	Os relacionamentos que não terminam com toMany exemplo OneToMany, a JPA não executa esse join. Para evitar que aconteça um gargalho, temos que definir uma propriedade para nossa anotação
+ -	```@ManyToOne(fecth = FetchType.LAZY)```
