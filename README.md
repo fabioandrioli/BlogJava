@@ -27,3 +27,7 @@ escolhemos a opção update project.
 - Todo relacionamento que termina em ToOne, exemplo ManyToOne, a JPA faz um join na tabela, isso pode gerar um gargalo na apliação.
 	Os relacionamentos que não terminam com toMany exemplo OneToMany, a JPA não executa esse join. Para evitar que aconteça um gargalho, temos que definir uma propriedade para nossa anotação
  -	```@ManyToOne(fecth = FetchType.LAZY)```
+ 
+ - Porém isso pode gerar alguns efeitos indesejados na aplicação. Como no caso de você acessar uma entidade que realiza um join, e nesse momento o entityManager ja estiver fechado. ou seja depois do ```entityManager.close() ```.
+ Nesse caso devemos criar uma query, para que no momento que carregue o cliente, carregque junto a outra entity necessaria.
+
