@@ -14,7 +14,7 @@ public class ItemPedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String price;
+	private int price;
 	private String nameProdut;
 	
 	@ManyToOne
@@ -23,7 +23,7 @@ public class ItemPedido {
 	@ManyToOne
 	private Pedido pedido;
 	
-	public ItemPedido(String price, Pedido pedido, Product produto) {
+	public ItemPedido(int price, Pedido pedido, Product produto) {
 		this.price = price;
 		this.product = produto;
 		this.pedido = pedido;
@@ -38,11 +38,11 @@ public class ItemPedido {
 		this.id = id;
 	}
 
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

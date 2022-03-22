@@ -34,12 +34,15 @@ public class Main {
 		entityManager.getTransaction().begin();
 		
 		Pedido pedido = new Pedido(cliente);
-		pedido.adicionarItem(new ItemPedido("25.50",pedido,product));
+		pedido.adicionarItem(new ItemPedido(25,pedido,product));
 		
 		PedidoDao pedidoDao = new PedidoDao(entityManager);
 		pedidoDao.create(pedido);
 		
 		entityManager.getTransaction().commit();
+		
+		
+		System.out.println(pedidoDao.valorTotalVendido());
 		
 	}
 	

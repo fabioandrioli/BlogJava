@@ -16,4 +16,9 @@ public class PedidoDao {
 	public void create(Pedido pedido) {
 		this.entityManager.persist(pedido);
 	}
+	
+	public int valorTotalVendido() {
+		String jpql = "SELECT SUM(p.valorTotal) FROM Pedido p";
+		return entityManager.createQuery(jpql, int.class).getSingleResult();
+	}
 }
